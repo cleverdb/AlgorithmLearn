@@ -2,7 +2,7 @@ package com.cleverdb;
 
 /**
  * πÈ≤¢À„∑®
- * @author V.Bo.Dong
+ * @author Bo.Dong
  *
  */
 public class Merge {

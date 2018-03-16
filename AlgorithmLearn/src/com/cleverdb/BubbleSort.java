@@ -1,5 +1,7 @@
 package com.cleverdb;
 
+import java.util.Hashtable;
+import java.util.TreeMap;
 
 /**
  * 冒泡排序
@@ -15,6 +17,7 @@ public class BubbleSort {
 
 	public static void sort(int[] array){
 		int len = array.length;
+		Hashtable<K, V>
 		//控制比较的次数
 		for(int out = len - 1; out > 1 ; --out ){
 			//

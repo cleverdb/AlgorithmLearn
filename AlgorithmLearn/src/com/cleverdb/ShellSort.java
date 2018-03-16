@@ -5,7 +5,7 @@ package com.cleverdb;
  * 希尔算法
  * 通过间隔系数，减少复制移动次数，基于插入排序
  * 时间复杂度：O(N*(logN)^2)
- * @author V.Bo.Dong
+ * @author Bo.Dong
  *
  */
 public class ShellSort {
