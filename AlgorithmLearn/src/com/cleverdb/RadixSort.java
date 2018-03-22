@@ -2,8 +2,8 @@ package com.cleverdb;
 
 /**
  * 
- * »ùÊıÅÅĞò
- * Ê±¼ä¸´ÔÓ¶È:O(N)--->O(N*logN)
+ * åŸºæ•°æ’åº
+ * æ—¶é—´å¤æ‚åº¦:O(N)--->O(N*logN)
  * @author Bo.Dong
  *
  */
@@ -11,30 +11,30 @@ public class RadixSort {
 
 	static void sort(int[] array, int radix){
 		int len = array.length;
-		int temp = 0;//ÁÙÊ±¼ÇÂ¼Êı×éÏÂ±ê
-		int div = 1;//³ıÊı 1...10...100
-		int[][] bucket = new int[10][len];//¶şÎ¬Êı×é£¬´æ·Å¶ÔÓ¦µÄÊı×éÖµ
-		int[] number=new int[len];//ÓÃÓÚ¼ÇÂ¼Ã¿¸öÍ°ÀïÓĞ¶àÉÙ¸öÊı×Ö
-		int maxRadix = maxRadix(array, radix);//»ñÈ¡×î´óÊıµÄÎ»Êı
-		for(int i = 0 ; i <= maxRadix; i++){//¿ØÖÆÑ­»·´ÎÊı
-			for(int j = 0 ; j < len; j++){//·ÖÅäÊı¾İµ½¶ÔÓ¦µÄÍ°
+		int temp = 0;//ä¸´æ—¶è®°å½•æ•°ç»„ä¸‹æ ‡
+		int div = 1;//é™¤æ•° 1...10...100
+		int[][] bucket = new int[10][len];//äºŒç»´æ•°ç»„ï¼Œå­˜æ”¾å¯¹åº”çš„æ•°ç»„å€¼
+		int[] number=new int[len];//ç”¨äºè®°å½•æ¯ä¸ªæ¡¶é‡Œæœ‰å¤šå°‘ä¸ªæ•°å­—
+		int maxRadix = maxRadix(array, radix);//è·å–æœ€å¤§æ•°çš„ä½æ•°
+		for(int i = 0 ; i <= maxRadix; i++){//æ§åˆ¶å¾ªç¯æ¬¡æ•°
+			for(int j = 0 ; j < len; j++){//åˆ†é…æ•°æ®åˆ°å¯¹åº”çš„æ¡¶
 				int val = array[j];
 				int bucketIndex = (val/div) % radix;
 				bucket[bucketIndex][number[bucketIndex]]=val;
 				number[bucketIndex]++;
 			}
 			
-			for(int k= 0; k<len; k++){//°´Ë³ĞòÈ¡³öÃ¿¸öÍ°Êı¾İ£¬ÖØĞÂÅÅÁĞÊı¾İ
+			for(int k= 0; k<len; k++){//æŒ‰é¡ºåºå–å‡ºæ¯ä¸ªæ¡¶æ•°æ®ï¼Œé‡æ–°æ’åˆ—æ•°æ®
 				if(number[k] > 0){
 					for(int j= 0 ;j<number[k]; j++){
 						array[temp] = bucket[k][j];
 						temp++;
 					}
-					number[k] = 0;//Çå¿Õ¼ÇÂ¼Êı
+					number[k] = 0;//æ¸…ç©ºè®°å½•æ•°
 				}
 				
 			}
-			temp = 0;//Êı×éÏÂ±í¹é0£¬ÓÃÓÚÏÂ´ÎÑ­»·
+			temp = 0;//æ•°ç»„ä¸‹è¡¨å½’0ï¼Œç”¨äºä¸‹æ¬¡å¾ªç¯
 			div*=radix;//
 			
 		}

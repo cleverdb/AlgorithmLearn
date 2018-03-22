@@ -1,7 +1,7 @@
 package com.cleverdb;
 
 /**
- * ¹é²¢Ëã·¨
+ * å½’å¹¶ç®—æ³•
  * @author Bo.Dong
  *
  */
@@ -9,12 +9,12 @@ public class Merge {
 
 	/**
 	 * 
-	 * Á½¸öÒÑ¾­ÓĞĞòµÄÊı×é
-	 * @param srcA ÓĞĞòÊı×éA
-	 * @param lengthA ÓĞĞòÊı×éAµÄ³¤¶È
-	 * @param srcB ÓĞĞòÊı×éB
-	 * @param lengthB ÓĞĞòÊı×éBµÄ³¤¶È
-	 * @param srcC ¹é²¢Êı×é
+	 * ä¸¤ä¸ªå·²ç»æœ‰åºçš„æ•°ç»„
+	 * @param srcA æœ‰åºæ•°ç»„A
+	 * @param lengthA æœ‰åºæ•°ç»„Açš„é•¿åº¦
+	 * @param srcB æœ‰åºæ•°ç»„B
+	 * @param lengthB æœ‰åºæ•°ç»„Bçš„é•¿åº¦
+	 * @param srcC å½’å¹¶æ•°ç»„
 	 */
 	static void sort(int[] srcA, int lengthA, int[] srcB, int lengthB, int[] srcC){
 		
@@ -36,67 +36,67 @@ public class Merge {
 	}
 
 	/**
-	 * ·ÖÖÎÅÅĞò--¹é²¢ÅÅĞò
-	 * Ê±¼ä¸´ÔÓ¶È£ºN*logN
-	 * @param array ´ıÅÅĞòÊı×é
+	 * åˆ†æ²»æ’åº--å½’å¹¶æ’åº
+	 * æ—¶é—´å¤æ‚åº¦ï¼šN*logN
+	 * @param array å¾…æ’åºæ•°ç»„
 	 */
 	static void sort(int[] array){
 		int[] temp = new int[array.length] ;
 		triabgleSort(array, temp, 0, array.length-1);
 	}
 	/**
-	 * @param src ĞèÒªÅÅĞòµÄÊı×é
-	 * @param des ÁÙÊ±´æ·ÅÊı×é
-	 * @param low ·Ö×éµÍÎ»
-	 * @param hig ·Ö×é¸ßÎ»
+	 * @param src éœ€è¦æ’åºçš„æ•°ç»„
+	 * @param des ä¸´æ—¶å­˜æ”¾æ•°ç»„
+	 * @param low åˆ†ç»„ä½ä½
+	 * @param hig åˆ†ç»„é«˜ä½
 	 */
 	static void triabgleSort(int[] src,  int[] des, int low, int hig){
 		if(low == hig){
 			return;
 		}else{
 			int mid = (low+hig)/2;
-			//×ó²à¹é²¢ÅÅĞò
+			//å·¦ä¾§å½’å¹¶æ’åº
 			triabgleSort(src, des, low, mid);
-			//ÓÒ²à¹é²¢ÅÅĞò
+			//å³ä¾§å½’å¹¶æ’åº
 			triabgleSort(src, des, mid+1, hig);
-		    //¹é²¢Êı×é
+		    //å½’å¹¶æ•°ç»„
 			mergeArray(src, des, low, mid, hig);
 			
 		}
 	}
 	
 	/**
-	 * ¹é²¢Êı×é
-	 * @param src Ô­Êı×é
-	 * @param des ÁÙÊ±Êı×é
-	 * @param low ×î×ó²àÏÂ±ê
-	 * @param mid ÖĞ¼äÖµ
-	 * @param hig ×îÓÒ²àÏÂ±ê
+	 * å½’å¹¶æ•°ç»„
+	 * @param src åŸæ•°ç»„
+	 * @param des ä¸´æ—¶æ•°ç»„
+	 * @param low æœ€å·¦ä¾§ä¸‹æ ‡
+	 * @param mid ä¸­é—´å€¼
+	 * @param hig æœ€å³ä¾§ä¸‹æ ‡
  	 */
 	static void mergeArray(int[] src,  int[] des, int low, int mid, int hig){
-		int i = low; //×ó²àÏÂ±êÖ¸Õëindex
-		int j = mid + 1; // ÓÒ²àÏÂ±êÖ¸Õëindex
-		int index = 0; // ÁÙÊ±Êı×éÏÂ±ê
-		while(i <= mid && j <= hig){ // Ö»ÓĞÁ½²àÏÂ±ê¶¼Ğ¡ÓÚÁÙ½çÖµ£¬Á½²àÊı×é²ÅĞèÒª±È½Ï£¬·ñÔòÖ±½Ó¸´ÖÆµ½ÁÙÊ±Êı×é
+		int i = low; //å·¦ä¾§ä¸‹æ ‡æŒ‡é’ˆindex
+		int j = mid + 1; // å³ä¾§ä¸‹æ ‡æŒ‡é’ˆindex
+		int index = 0; // ä¸´æ—¶æ•°ç»„ä¸‹æ ‡
+		while(i <= mid && j <= hig){ // åªæœ‰ä¸¤ä¾§ä¸‹æ ‡éƒ½å°äºä¸´ç•Œå€¼ï¼Œä¸¤ä¾§æ•°ç»„æ‰éœ€è¦æ¯”è¾ƒï¼Œå¦åˆ™ç›´æ¥å¤åˆ¶åˆ°ä¸´æ—¶æ•°ç»„
 			if(src[i] > src[j]){
 				des[index++] =src[j++];
 			}else{
 				des[index++] =src[i++];
 			}
 		}
-		while(i <= mid){//µ±×ó²àÊı×é»¹ÓĞÖµ
+		while(i <= mid){//å½“å·¦ä¾§æ•°ç»„è¿˜æœ‰å€¼
 			des[index++] =src[i++];
 		}
-		while(j <= hig){//µ±ÓÒ²àÊı×é»¹ÓĞÖµ
+		while(j <= hig){//å½“å³ä¾§æ•°ç»„è¿˜æœ‰å€¼
 			des[index++] =src[j++];
 		}
-		for(int n = 0 ;n < index; n++){//½«ÁÙÊ±Êı×éµÄÖµcopyµ½Ô­Êı×é
+		for(int n = 0 ;n < index; n++){//å°†ä¸´æ—¶æ•°ç»„çš„å€¼copyåˆ°åŸæ•°ç»„
 			src[low+n] =des[n];
 		}
 	}
 	
 	/**
-	 * µİ¹é¼ÆËã x^y
+	 * é€’å½’è®¡ç®— x^y
 	 * @param x
 	 * @param y
 	 * @return
@@ -106,7 +106,7 @@ public class Merge {
 			return x;
 		}
 		else{
-			if((y&1) != 0) //Èç¹ûÎªÆæÊı£¬Ôò³ËÒÔµ±Ç°Êı
+			if((y&1) != 0) //å¦‚æœä¸ºå¥‡æ•°ï¼Œåˆ™ä¹˜ä»¥å½“å‰æ•°
 				return  calculata( x*x, y/2)*x;
 			return  calculata( x*x, y/2);
 		 }
