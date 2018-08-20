@@ -1,0 +1,4 @@
+#LWP-Cookies-2.0
+Set-Cookie3: aliyungf_tc="AQAAACtDQVyIwQMAm5EryvP7s7c8pbj8"; path="/"; domain="ztcwx.myscrm.cn"; path_spec; discard; HttpOnly=None; version=0
+Set-Cookie3: PHPSESSID=gvh9r450fivarulht3ccq4kob3; path="/"; domain="ztcwx.myscrm.cn"; path_spec; discard; HttpOnly=None; version=0
+Set-Cookie3: last_env=g2; path="/"; domain="ztcwx.myscrm.cn"; path_spec; discard; version=0
